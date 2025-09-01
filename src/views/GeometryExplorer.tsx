@@ -3,9 +3,9 @@ import * as THREE from "three";
 
 export default function GeometryExplorer() {
   const mountRef = useRef<HTMLDivElement | null>(null);
-  const [scene, setScene] = useState<THREE.Scene | null>(null);
+  const [, setScene] = useState<THREE.Scene | null>(null);
   const [cube, setCube] = useState<THREE.Mesh | null>(null);
-  const [renderer, setRenderer] = useState<THREE.WebGLRenderer | null>(null);
+  const [, setRenderer] = useState<THREE.WebGLRenderer | null>(null);
   const [rotation, setRotation] = useState(false);
 
   // Inicialización de la escena

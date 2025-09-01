@@ -37,7 +37,8 @@ export default function SpeechDemoView() {
     if (!("speechSynthesis" in window)) return;
     synth.cancel();
     const u = new SpeechSynthesisUtterance(text);
-    u.voice = voices.find((v) => v.name === selectedVoice);
+    u.voice = voices.find((v) => v.name === selectedVoice) ?? null;
+
     u.rate = rate;
     u.pitch = pitch;
     u.lang = u.voice?.lang || "en-US";
