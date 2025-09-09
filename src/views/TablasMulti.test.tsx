@@ -1,4 +1,4 @@
-// TablasMulti.test.tsx
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import TablasMulti from './TablasMulti';
@@ -17,11 +17,11 @@ describe('TablasMulti Component', () => {
     const input = screen.getByPlaceholderText('Ingresa un número');
     const button = screen.getByText('🚀 Generar Tabla');
     
-    // Ingresar número 5
+    
     fireEvent.change(input, { target: { value: '5' } });
     fireEvent.click(button);
     
-    // Verificar que se muestran los resultados correctos (usando × en lugar de x)
+    
     expect(container.textContent).toContain('5 × 1 = 5');
     expect(container.textContent).toContain('5 × 10 = 50');
   });
@@ -32,12 +32,11 @@ describe('TablasMulti Component', () => {
     const input = screen.getByPlaceholderText('Ingresa un número');
     const button = screen.getByText('🚀 Generar Tabla');
     
-    // Primero con 3
     fireEvent.change(input, { target: { value: '3' } });
     fireEvent.click(button);
     expect(container.textContent).toContain('3 × 1 = 3');
     
-    // Luego con 7
+   
     fireEvent.change(input, { target: { value: '7' } });
     fireEvent.click(button);
     expect(container.textContent).toContain('7 × 1 = 7');

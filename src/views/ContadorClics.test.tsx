@@ -1,9 +1,9 @@
-// ContadorClics.test.tsx
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ContadorClics from './ContadorClics';
 
-// Mock de localStorage
+
 const localStorageMock = (() => {
   let store: { [key: string]: string } = {};
   return {
@@ -34,7 +34,7 @@ describe('ContadorClics Component', () => {
   test('incrementa el contador al hacer clic', () => {
     render(<ContadorClics />);
     
-    // Cambiado: Buscar por el nuevo texto con el emoji
+    
     const button = screen.getByText('✨ Haz clic');
     
     fireEvent.click(button);
@@ -47,7 +47,7 @@ describe('ContadorClics Component', () => {
   test('guarda el valor en localStorage', () => {
     render(<ContadorClics />);
     
-    // Cambiado: Buscar por el nuevo texto con el emoji
+    
     const button = screen.getByText('✨ Haz clic');
     
     fireEvent.click(button);
@@ -57,7 +57,7 @@ describe('ContadorClics Component', () => {
   });
 
   test('carga el valor de localStorage al renderizar', () => {
-    // Primero guardamos un valor
+    
     localStorage.setItem('contadorClics', '5');
     
     render(<ContadorClics />);

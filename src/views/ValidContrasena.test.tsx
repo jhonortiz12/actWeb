@@ -1,4 +1,4 @@
-// ValidContrasena.test.tsx
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ValidContrasena from './ValidContrasena';
@@ -20,16 +20,16 @@ describe('ValidContrasena Component', () => {
     
     const passwordInput = screen.getByPlaceholderText('Ingresa tu contraseña');
     
-    // Escribir "hola" - no cumple requisitos
+    
     fireEvent.change(passwordInput, { target: { value: 'hola' } });
     
-    // Verificar que el CONTENEDOR tiene la clase de color rojo
+    
     const lengthReq = screen.getByText('Mínimo 8 caracteres');
-    const contenedor = lengthReq.parentElement; // ← El div padre
+    const contenedor = lengthReq.parentElement; 
     
     expect(contenedor).toHaveClass('text-red-600');
     
-    // Verificar que muestra ❌
+   
     const icono = lengthReq.previousElementSibling;
     expect(icono).toHaveTextContent('❌');
   });
@@ -39,20 +39,19 @@ describe('ValidContrasena Component', () => {
     
     const passwordInput = screen.getByPlaceholderText('Ingresa tu contraseña');
     
-    // Contraseña que cumple todos los requisitos
+    
     fireEvent.change(passwordInput, { target: { value: 'SecurePass123!' } });
     
-    // Verificar mensaje de éxito
+   
     expect(screen.getByText('🎉 ¡Contraseña válida!')).toBeInTheDocument();
     expect(screen.getByText('Tu contraseña cumple con los requisitos básicos de seguridad')).toBeInTheDocument();
     
-    // Verificar que el CONTENEDOR tiene la clase de color verde
+    
     const lengthReq = screen.getByText('Mínimo 8 caracteres');
-    const contenedor = lengthReq.parentElement; // ← El div padre
+    const contenedor = lengthReq.parentElement; 
     
     expect(contenedor).toHaveClass('text-green-600');
     
-    // Verificar que muestra ✅
     const lengthIcon = lengthReq.previousElementSibling;
     expect(lengthIcon).toHaveTextContent('✅');
   });
